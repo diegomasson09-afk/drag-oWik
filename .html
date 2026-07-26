@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Como Treinar Seu Dragão - Site Informativo</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #064e3b 100%);
+        color: #fff;
+        min-height: 100vh;
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    header {
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+        transform: scale(1.05);
+    }
+
+    .logo-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #10b981, #059669);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+        overflow: hidden;
+    }
+
+    .logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .logo-text h1 {
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: -0.5px;
+    }
+
+    .logo-text p {
+        font-size: 12px;
+        color: #10b981;
+        font-weight: 600;
+    }
+
+    nav {
+        display: flex;
+        gap: 10px;
+    }
+
+    .nav-btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 15px;
+        background: transparent;
+        color: #cbd5e1;
+    }
+
+    .nav-btn:hover {
+        background: rgba(148, 163, 184, 0.1);
+        color: #fff;
+    }
+
+    .nav-btn.active {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .section {
+        display: none;
+        animation: fadeIn 0.6s ease;
+    }
+
+    .section.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #home {
+        background-image: url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69179ace6bedbac5e56b9d8a/582f24a97_wallpaperbetter.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+    }
+
+    #home::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.75) 0%, rgba(6, 78, 59, 0.7) 100%);
+        pointer-events: none;
+    }
+
+    #personagens {
+        background-image: url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/f59178b76_Berk_Village.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+    }
+
+    #personagens::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(6, 78, 59, 0.8) 100%);
+        pointer-events: none;
+    }
+
+    #personagens > .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    #dragoes {
+        background-image: url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/c9bf19580_how-to-train-your-dragon-pictures-ggmcxk0we9w4yz6r.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+    }
+
+    #dragoes::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(6, 78, 59, 0.8) 100%);
+        pointer-events: none;
+    }
+
+    #dragoes > .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 100px 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 10px 20px;
+        background: rgba(16, 185, 129, 0.3);
+        border: 1px solid rgba(16, 185, 129, 0.5);
+        border-radius: 50px;
+        color: #10b981;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+        font-size: 64px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        line-height: 1.1;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+... (file continues)

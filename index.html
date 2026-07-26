@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Como Treinar Seu Dragão - Site Informativo</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #064e3b 100%);
+        color: #fff;
+        min-height: 100vh;
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    header {
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+        transform: scale(1.05);
+    }
+
+    .logo-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #10b981, #059669);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+        overflow: hidden;
+    }
+
+    .logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .logo-text h1 {
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: -0.5px;
+    }
+
+    .logo-text p {
+        font-size: 12px;
+        color: #10b981;
+        font-weight: 600;
+    }
+
+    nav {
+        display: flex;
+        gap: 10px;
+    }
+
+    .nav-btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 15px;
+        background: transparent;
+        color: #cbd5e1;
+    }
+
+    .nav-btn:hover {
+        background: rgba(148, 163, 184, 0.1);
+        color: #fff;
+    }
+
+    .nav-btn.active {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .section {
+        display: none;
+        animation: fadeIn 0.6s ease;
+    }
+
+    .section.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #home {
+        background-image: url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69179ace6bedbac5e56b9d8a/582f24a97_wallpaperbetter.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+    }
+
+    #home::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.75) 0%, rgba(6, 78, 59, 0.7) 100%);
+        pointer-events: none;
+    }
+
+    #personagens {
+        background-image: url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/f59178b76_Berk_Village.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+    }
+
+    #personagens::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(6, 78, 59, 0.8) 100%);
+        pointer-events: none;
+    }
+
+    #personagens > .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    #dragoes {
+        background-image: url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/c9bf19580_how-to-train-your-dragon-pictures-ggmcxk0we9w4yz6r.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+    }
+
+    #dragoes::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(6, 78, 59, 0.8) 100%);
+        pointer-events: none;
+    }
+
+    #dragoes > .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 100px 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 10px 20px;
+        background: rgba(16, 185, 129, 0.3);
+        border: 1px solid rgba(16, 185, 129, 0.5);
+        border-radius: 50px;
+        color: #10b981;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+        font-size: 64px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        line-height: 1.1;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero .subtitle {
+        font-size: 48px;
+        background: linear-gradient(135deg, #10b981, #14b8a6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 30px;
+        text-shadow: none;
+        filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.3));
+    }
+
+    .hero p {
+        font-size: 20px;
+        color: #fff;
+        max-width: 800px;
+        margin: 0 auto 40px;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 16px 32px;
+        border: none;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-primary:hover {
+        box-shadow: 0 12px 30px rgba(16, 185, 129, 0.5);
+        transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+        background: rgba(30, 41, 59, 0.7);
+        border: 1px solid rgba(148, 163, 184, 0.5);
+        color: white;
+        backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(30, 41, 59, 0.9);
+    }
+
+    .trilogia {
+        padding: 80px 20px;
+        position: relative;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+        font-size: 48px;
+        font-weight: bold;
+        margin-bottom: 16px;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .section-header p {
+        font-size: 18px;
+        color: #e2e8f0;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 80px;
+    }
+
+    .card {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        border-radius: 20px;
+        padding: 40px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        padding: 2px;
+        background: linear-gradient(135deg, transparent, rgba(16, 185, 129, 0.3));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .card:hover::before {
+        opacity: 1;
+    }
+
+    .card:hover {
+        border-color: rgba(148, 163, 184, 0.5);
+        transform: translateY(-5px);
+        background: rgba(15, 23, 42, 0.8);
+    }
+
+    .card-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        margin-bottom: 24px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+    }
+
+    .card-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card h3 {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .card p {
+        color: #e2e8f0;
+        line-height: 1.8;
+    }
+
+    .personagem-card {
+        background: rgba(15, 23, 42, 0.3);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 24px;
+        padding: 48px;
+        margin-bottom: 40px;
+        transition: all 0.3s ease;
+    }
+
+    .personagem-card:hover {
+        border-color: rgba(148, 163, 184, 0.4);
+    }
+
+    .personagem-header {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+    }
+
+    .personagem-info {
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .personagem-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        margin-bottom: 24px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease;
+        overflow: hidden;
+    }
+
+    .personagem-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .personagem-card:hover .personagem-icon {
+        transform: scale(1.1);
+    }
+
+    .personagem-info h2 {
+        font-size: 36px;
+        margin-bottom: 12px;
+    }
+
+    .personagem-titulo {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 24px;
+    }
+
+    .personagem-titulo.amber {
+        background: linear-gradient(135deg, #f59e0b, #ea580c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .personagem-titulo.pink {
+        background: linear-gradient(135deg, #a855f7, #ec4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .personagem-titulo.slate {
+        background: linear-gradient(135deg, #64748b, #94a3b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .caracteristicas {
+        list-style: none;
+    }
+
+    .caracteristicas li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 12px;
+        color: #94a3b8;
+        font-size: 14px;
+    }
+
+    .caracteristicas li::before {
+        content: '●';
+        font-size: 10px;
+        margin-top: 6px;
+    }
+
+    .personagem-descricao {
+        flex: 2;
+        min-width: 300px;
+        display: flex;
+        align-items: center;
+    }
+
+    .personagem-descricao p {
+        font-size: 18px;
+        color: #cbd5e1;
+        line-height: 1.8;
+    }
+
+    .dragao-card {
+        background: rgba(15, 23, 42, 0.3);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 40px;
+        transition: all 0.3s ease;
+    }
+
+    .dragao-card.red {
+        border: 1px solid rgba(220, 38, 38, 0.3);
+    }
+
+    .dragao-card.blue {
+        border: 1px solid rgba(37, 99, 235, 0.3);
+    }
+
+    .dragao-card.yellow {
+        border: 1px solid rgba(234, 179, 8, 0.3);
+    }
+
+    .dragao-card.orange {
+        border: 1px solid rgba(234, 88, 12, 0.3);
+    }
+
+    .dragao-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .dragao-header {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 24px;
+        align-items: flex-start;
+    }
+
+    .dragao-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        flex-shrink: 0;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease;
+        overflow: hidden;
+    }
+
+    .dragao-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .dragao-card:hover .dragao-icon {
+        transform: scale(1.1);
+    }
+
+    .dragao-info h3 {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+
+    .dragao-tipo {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .dragao-tipo.red {
+        color: #f87171;
+    }
+
+    .dragao-tipo.blue {
+        color: #60a5fa;
+    }
+
+    .dragao-tipo.yellow {
+        color: #fbbf24;
+    }
+
+    .dragao-tipo.orange {
+        color: #fb923c;
+    }
+
+    .dragao-filme {
+        font-size: 12px;
+        color: #64748b;
+    }
+
+    .dragao-descricao {
+        color: #cbd5e1;
+        margin-bottom: 24px;
+        line-height: 1.8;
+    }
+
+    .dragao-caracteristicas {
+        margin-bottom: 24px;
+    }
+
+    .dragao-caracteristicas h4 {
+        font-size: 12px;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+        font-weight: 600;
+    }
+
+    .dragao-caracteristicas ul {
+        list-style: none;
+    }
+
+    .dragao-caracteristicas li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 10px;
+        color: #94a3b8;
+        font-size: 14px;
+    }
+
+    .dragao-caracteristicas li::before {
+        content: '●';
+        font-size: 8px;
+        margin-top: 6px;
+    }
+
+    .habilidades-toggle {
+        width: 100%;
+        padding: 16px;
+        background: rgba(15, 23, 42, 0.5);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 12px;
+        color: white;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+    }
+
+    .habilidades-toggle:hover {
+        background: rgba(15, 23, 42, 0.8);
+    }
+
+    .habilidades-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .habilidades-content.active {
+        max-height: 500px;
+        padding-top: 16px;
+    }
+
+    .habilidades-content p {
+        color: #94a3b8;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    footer {
+        border-top: 1px solid rgba(148, 163, 184, 0.1);
+        background: rgba(15, 23, 42, 0.5);
+        backdrop-filter: blur(20px);
+        margin-top: 80px;
+    }
+
+    .footer-content {
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    footer p {
+        color: #94a3b8;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    footer p:last-child {
+        color: #64748b;
+        font-size: 12px;
+    }
+
+    .info-box {
+        display: inline-block;
+        background: rgba(15, 23, 42, 0.7);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 800px;
+        margin: 80px auto 0;
+    }
+
+    .info-box p {
+        color: #e2e8f0;
+        line-height: 1.8;
+        margin-bottom: 16px;
+    }
+
+    .info-box p:last-child {
+        color: #94a3b8;
+        font-size: 14px;
+        font-style: italic;
+        margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 40px;
+        }
+
+        .hero .subtitle {
+            font-size: 32px;
+        }
+
+        nav {
+            gap: 5px;
+        }
+
+        .nav-btn {
+            padding: 10px 16px;
+            font-size: 14px;
+        }
+
+        .personagem-header {
+            flex-direction: column;
+        }
+
+        .grid {
+            grid-template-columns: 1fr;
+        }
+
+        .card {
+            padding: 30px;
+        }
+
+        .personagem-card {
+            padding: 30px;
+        }
+
+        .dragao-card {
+            padding: 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo-text h1 {
+            font-size: 18px;
+        }
+
+        .hero-buttons {
+            flex-direction: column;
+        }
+
+        .btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo" onclick="showSection('home')">
+          <div class="logo-icon">
+            <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/a8349ae19_imagem_2025-11-16_012034692.png" alt="Logo Dragão" />
+          </div>
+          <div class="logo-text">
+            <h1>Como Treinar</h1>
+            <p>Seu Dragão</p>
+          </div>
+        </div>
+        <nav>
+          <button class="nav-btn active" data-section="home" onclick="showSection('home')">🏠 Home</button>
+          <button class="nav-btn" data-section="personagens" onclick="showSection('personagens')">👥 Personagens</button>
+          <button class="nav-btn" data-section="dragoes" onclick="showSection('dragoes')">🔥 Dragões</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="section active">
+      <div class="container">
+        <div class="hero">
+          <div class="hero-content">
+            <span class="badge">Uma Trilogia Épica</span>
+            <h1>Como Treinar</h1>
+            <div class="subtitle">Seu Dragão</div>
+            <p>Uma história emocionante sobre amizade, coragem e a união improvável entre vikings e dragões que mudou para sempre a ilha de Berk.</p>
+            <div class="hero-buttons">
+              <button class="btn btn-primary" onclick="showSection('personagens')">
+                Conheça os Personagens →
+              </button>
+              <button class="btn btn-secondary" onclick="showSection('dragoes')">
+                Descubra os Dragões →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="trilogia">
+          <div class="section-header">
+            <h2>A Trilogia</h2>
+            <p>Três filmes que conquistaram o coração de milhões ao redor do mundo</p>
+          </div>
+
+          <div class="grid">
+            <div class="card">
+              <div class="card-icon">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/3af4caf5d_imagem_2025-11-14_211529724.png" alt="Soluço jovem" />
+              </div>
+              <h3>Como Treinar o Seu Dragão (2010)</h3>
+              <p>A jornada começa quando Soluço, um jovem viking desajeitado, torna-se amigo de um dragão ferido chamado Banguela. Juntos, eles desafiam séculos de tradição e mostram que humanos e dragões podem viver em harmonia.</p>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/5d65c861b_imagem_2025-11-14_211540168.png" alt="Soluço adulto" />
+              </div>
+              <h3>Como Treinar o Seu Dragão 2 (2014)</h3>
+              <p>Cinco anos depois, Soluço e Banguela descobrem um santuário de dragões e encontram Valka, a mãe perdida de Soluço. Juntos, enfrentam Drago Bludvist e sua Besta Implacável, que ameaçam a paz entre dragões e vikings.</p>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/cce4a2d01_imagem_2025-11-14_211547321.png" alt="Soluço líder" />
+              </div>
+              <h3>Como Treinar o Seu Dragão 3 (2019)</h3>
+              <p>Na conclusão épica, Soluço se torna o líder de Berk e descobre o Mundo Oculto, o lar ancestral dos dragões. Enfrentando novos desafios, ele deve tomar a decisão mais difícil: deixar Banguela livre para proteger ambas as espécies.</p>
+            </div>
+          </div>
+
+          <div style="text-align:center;">
+            <div class="info-box">
+              <p>Mergulhe nos detalhes dos personagens memoráveis e das criaturas majestosas que fazem parte desta saga extraordinária.</p>
+              <div style="margin-top:20px;">
+                <button class="btn btn-primary" onclick="showSection('personagens')" style="margin-right:10px;">Ver Personagens</button>
+                <button class="btn btn-secondary" onclick="showSection('dragoes')">Ver Dragões</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="personagens" class="section" style="padding:80px 20px;">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Heróis de Berk</span>
+          <h2>Personagens</h2>
+          <p>Conheça os vikings corajosos que mudaram o destino de Berk e criaram uma nova era de harmonia com os dragões</p>
+        </div>
+
+        <div style="margin-top:60px;">
+          <div class="personagem-card">
+            <div class="personagem-header">
+              <div class="personagem-info">
+                <div class="personagem-icon">
+                  <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/38c3c2823_imagem_2025-11-14_213203356.png" alt="Ícone do personagem" />
+                </div>
+                <h2>Soluço Horrendous Haddock III</h2>
+                <p class="personagem-titulo amber">O Herói Viking</p>
+                <ul class="caracteristicas">
+                  <li>Corajoso</li>
+                  <li>Leal</li>
+                  <li>Estratégico</li>
+                </ul>
+              </div>
+              <div class="personagem-descricao">
+                <p>Filho de Estoico, o Imenso, Soluço era inicialmente considerado o viking mais fraco de Berk. Porém, sua inteligência, compaixão e criatividade o tornaram o primeiro viking a treinar um dragão. Sua amizade com Banguela mudou não apenas sua vida, mas todo o futuro de Berk.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="personagem-card">
+            <div class="personagem-header">
+              <div class="personagem-info">
+                <div class="personagem-icon">
+                  <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/58a6865aa_imagem_2025-11-14_213227011.png" alt="Ícone da Valka" />
+                </div>
+                <h2>Valka</h2>
+                <p class="personagem-titulo pink">A Protetora dos Dragões</p>
+                <ul class="caracteristicas">
+                  <li>Protetora dos dragões</li>
+                  <li>Conhecedora de espécies</li>
+                  <li>Independente</li>
+                </ul>
+              </div>
+              <div class="personagem-descricao">
+                <p>Valka dedicou sua vida a proteger dragões feridos e estudar seu comportamento. Sua experiência ajudou a fundar uma ponte entre humanos e dragões.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="personagem-card">
+            <div class="personagem-header">
+              <div class="personagem-info">
+                <div class="personagem-icon">
+                  <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/1540078bd_imagem_2025-11-14_213318256.png" alt="Ícone do personagem" />
+                </div>
+                <h2>Estoico, o Imenso</h2>
+                <p class="personagem-titulo slate">Chefe de Berk</p>
+                <ul class="caracteristicas">
+                  <li>Forte</li>
+                  <li>Justo</li>
+                  <li>Pai de Soluço</li>
+                </ul>
+              </div>
+              <div class="personagem-descricao">
+                <p>Estoico é o líder da vila, conhecido por sua força e senso de justiça. Apesar das tradições, apoiou mudanças que trouxeram paz entre vikings e dragões.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:80px;">
+          <div class="info-box">
+            <p>Estes personagens representam a evolução de Berk, de uma sociedade guerreira que temia dragões para uma comunidade que vive em harmonia com essas criaturas magníficas. Cada um deles desempenhou um papel crucial nesta transformação.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dragoes" class="section" style="padding:80px 20px;">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Criaturas Majestosas</span>
+          <h2>Dragões</h2>
+          <p>Das profundezas vulcânicas aos céus infinitos, conheça as criaturas extraordinárias que dominam o mundo de Berk</p>
+        </div>
+
+        <div class="grid" style="margin-top:60px;">
+          <div class="dragao-card red">
+            <div class="dragao-header">
+                <div class="dragao-icon">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/705796815_9a4f61763827d46fd11ce3277355ca8db4ddab4c_hq.jpg" alt="Ícone da Morte Rubra" />
+              </div>
+              <div class="dragao-info">
+                <h3>Morte Rubra</h3>
+                <div class="dragao-tipo red">Alpha</div>
+                <div class="dragao-filme">Como Treinar o Seu Dragão (2010)</div>
+              </div>
+            </div>
+            <p class="dragao-descricao">Um dragão colossal que vivia nas profundezas sob a ilha de Berk. A Morte Rubra comandava outros dragões através do medo, forçando-os a roubar comida dos vikings. Sua derrota marcou o início de uma nova era de paz.</p>
+            <div class="dragao-caracteristicas">
+              <h4>Características</h4>
+              <ul>
+                <li>Fogo explosivo</li>
+                <li>Controle sobre outros dragões</li>
+                <li>Força colossal</li>
+              </ul>
+            </div>
+            <button class="habilidades-toggle" onclick="toggleHabilidades(this)">
+              Habilidades Especiais
+              <span>▼</span>
+            </button>
+            <div class="habilidades-content">
+              <p>Sua principal arma é o fogo explosivo que pode destruir vilas inteiras. Como um dragão Alpha, possui autoridade natural sobre outras espécies de dragões, exceto aqueles que resistem ao seu controle.</p>
+            </div>
+          </div>
+
+          <div class="dragao-card blue">
+            <div class="dragao-header">
+              <div class="dragao-icon">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/c6a289e75_21475345cc2891672a1c7513063959ee65855efc_hq.jpg" alt="Ícone do Alpha azul" />
+              </div>
+              <div class="dragao-info">
+                <h3>Alpha Aprisionado</h3>
+                <div class="dragao-tipo blue">Alpha</div>
+                <div class="dragao-filme">Como Treinar o Seu Dragão 2 (2014)</div>
+              </div>
+            </div>
+            <p class="dragao-descricao">Um dragão Alpha massivo e poderoso, aprisionado e controlado por Drago Bludvist através de anos de tortura e abuso. Sua armadura e tusks fazem dele uma arma de guerra devastadora.</p>
+            <div class="dragao-caracteristicas">
+              <h4>Características</h4>
+              <ul>
+                <li>Armadura resistente</li>
+                <li>Força física extrema</li>
+                <li>Capacidade de comando</li>
+              </ul>
+            </div>
+            <button class="habilidades-toggle" onclick="toggleHabilidades(this)">
+              Habilidades Especiais
+              <span>▼</span>
+            </button>
+            <div class="habilidades-content">
+              <p>Como Alpha supremo, pode comandar qualquer dragão, sobrepujando até mesmo outros Alphas. Sua mordida e força física são incomparáveis. Depois de libertado, protege os dragões ao invés de dominá-los.</p>
+            </div>
+          </div>
+
+          <div class="dragao-card yellow">
+            <div class="dragao-header">
+              <div class="dragao-icon">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/835cc3b8f_Dragon_hero_stormfly.jpg" alt="Ícone do Nadder" />
+              </div>
+              <div class="dragao-info">
+                <h3>Nadder</h3>
+                <div class="dragao-tipo yellow">Espécie</div>
+                <div class="dragao-filme">Companheiro de Astrid</div>
+              </div>
+            </div>
+            <p class="dragao-descricao">Um dragão elegante e mortal, conhecido por sua beleza e espinhos venenosos. Tempestade, a Nadder de Astrid, é um dos exemplos mais leais e corajosos desta espécie.</p>
+            <div class="dragao-caracteristicas">
+              <h4>Características</h4>
+              <ul>
+                <li>Espinhos venenosos</li>
+                <li>Fogo azul quente</li>
+                <li>Excelente rastreador</li>
+              </ul>
+            </div>
+            <button class="habilidades-toggle" onclick="toggleHabilidades(this)">
+              Habilidades Especiais
+              <span>▼</span>
+            </button>
+            <div class="habilidades-content">
+              <p>Nadders são rastreadores excepcionais com espinhos na cauda que causam paralisia temporária. Seu fogo azul quente pode derreter metal rapidamente. São dragões extremamente leais aos seus pilotos.</p>
+            </div>
+          </div>
+
+          <div class="dragao-card orange">
+            <div class="dragao-header">
+              <div class="dragao-icon">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6917c5e77c6a146dbfe91534/35f48f4a4_a5e6221f274d456b966ba77f2939f259bfeab057_hq.jpg" alt="Ícone do Pesadelo" />
+              </div>
+              <div class="dragao-info">
+                <h3>Pesadelo</h3>
+                <div class="dragao-tipo orange">Espécie</div>
+                <div class="dragao-filme">Companheiro de váriações</div>
+              </div>
+            </div>
+            <p class="dragao-descricao">Dragões cobertos por chamas que se alimentam de fogo para manter sua temperatura corporal. Ganguejadinho, o Pesadelo de Perna de Peixe, demonstra a natureza ousada desta espécie.</p>
+            <div class="dragao-caracteristicas">
+              <h4>Características</h4>
+              <ul>
+                <li>Pode entrar em combustão</li>
+                <li>Alta resistência ao fogo</li>
+                <li>Natureza agressiva em batalha</li>
+              </ul>
+            </div>
+            <button class="habilidades-toggle" onclick="toggleHabilidades(this)">
+              Habilidades Especiais
+              <span>▼</span>
+            </button>
+            <div class="habilidades-content">
+              <p>Pesadelos podem se incendiar completamente, transformando-se em bolas de fogo voadoras. Quanto mais fogo consomem, mais poderosos se tornam. São os primeiros a entrar em batalha e extremamente corajosos.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:80px;">
+          <div class="info-box">
+            <p>Cada espécie de dragão possui características únicas que refletem sua natureza e habitat. Desde os temíveis Alphas até os leais companheiros, os dragões são criaturas inteligentes e complexas que merecem respeito e compreensão.</p>
+            <p>"Com amor e compreensão, qualquer dragão pode se tornar seu melhor amigo." - Soluço</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>© 2025 Como Treinar Seu Dragão - Site Informativo</p>
+        <p>Baseado na trilogia cinematográfica da DreamWorks Animation</p>
+        <p>Autores: Diego Masson, Luiza Engel, Luana Martins</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      // Sections
+      var sections = document.querySelectorAll('.section');
+      sections.forEach(function(s) {
+        s.classList.remove('active');
+      });
+      var target = document.getElementById(sectionId);
+      if (target) target.classList.add('active');
+
+      // Nav buttons
+      var navButtons = document.querySelectorAll('nav .nav-btn');
+      navButtons.forEach(function(btn) {
+        var sec = btn.getAttribute('data-section');
+        if (sec === sectionId) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleHabilidades(button) {
+      var content = button.nextElementSibling;
+      var arrow = button.querySelector('span');
+      if (!content) return;
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        arrow.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        arrow.textContent = '▲';
+      }
+    }
+
+    // Optional: close all habilidade contents if user navigates to another section
+    document.addEventListener('click', function(e) {
+      // If clicked nav, close any open habilidades-content
+      if (e.target.closest('nav') || e.target.closest('.logo')) {
+        document.querySelectorAll('.habilidades-content.active').forEach(function(c) {
+          c.classList.remove('active');
+          var btn = c.previousElementSibling;
+          if (btn && btn.querySelector) {
+            var span = btn.querySelector('span');
+            if (span) span.textContent = '▼';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
